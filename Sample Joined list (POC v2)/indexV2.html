@@ -6,16 +6,20 @@
 
 <body>
   <div class="fusion-header" style="overflow: visible;">    
-  <div class="fusion-logo" data-margin-top="15px" data-margin-bottom="15px" data-margin-left="0px" data-margin-right="0px" style="margin-top: 15px;">
-          <a class="fusion-logo-link" href="http://www.laparoleauxsourds.fr/" style="margin-left:15px">
+  <div class="fusion-logo" id="headerData" data-margin-top="15px" data-margin-bottom="15px" data-margin-left="0px" data-margin-right="0px" style="margin-top: 15px;">
+          <a class="fusion-logo-link" href="http://www.laparoleauxsourds.fr/" style="margin-left:15px;float:left;">
               <img src="http://www.laparoleauxsourds.fr/wp-content/uploads/2017/04/logo_la-parole-aux-sourds.png" width="111" height="120" alt="La Parole Aux Sourds" class="fusion-logo-1x fusion-standard-logo">
           </a>      
           <canvas id="animationField" height="150px" width="150px">
           </canvas>
       </div>
   </div>
-  <canvas id="connection-canvas" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0"></canvas>
-  <div class="row padding-answer-line-mapping">
+  <!-- TODO, merge this with quiz behaviour -->
+  <div id="quiz" class="">
+    <canvas id="connection-canvas"></canvas>
+          <h1 id="quiz-name" style="visibility:hidden;position:absolute;"></h1>
+
+<!--     <div class="row padding-answer-line-mapping">
       <div class="col answer-container">
         Nationalité étrangère
         <div class="round-pointer-right"></div>
@@ -118,7 +122,17 @@
         Titre de séjour valide 
         <div class="round-pointer-left"></div>
       </div>
+  </div> -->
+    <button id="next-question-button">Next Question</button>
+    <button id="prev-question-button">Previous</button>
+    <button id="submit-button">Submit Answers</button>
+    <div id="quiz-results">
+      <p id="quiz-results-message"></p>
+      <p id="quiz-results-score"></p>
+    </div>
   </div>
+  <!-- IP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.15/fabric.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="./funcsV2.js"></script>
