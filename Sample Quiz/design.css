@@ -105,6 +105,14 @@ button{
 }
 
 #quizlinkedFile{
+  float:left;
+  width:25%;
   margin-top: 50px;
 }
 
+#videoContainer {
+  position:absolute;
+  top:0px;
+  left:25%;
+  width:50%;
+}

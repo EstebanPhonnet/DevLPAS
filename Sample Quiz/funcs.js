@@ -1,6 +1,6 @@
 // Array of all the questions and choices to populate the questions. This might be saved in some JSON file or a database and we would have to read the data in.
 var all_questions = [{
-// Question 1
+    // Question 1
     question_string: "Qu’est ce que la retraite par répartition? ",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
@@ -8,9 +8,9 @@ var all_questions = [{
         correct: "les retraités sont payés par les cotisations prélevées sur le salaire des personnes qui travaillent ",
         wrong: ["les retraités partagent leurs économies ensemble ",
          "les retraités partagent leur pension de retraite avec les demandeurs d’emploi "]
-  }
-}, {
-// Question 2
+    }
+  }, {
+  // Question 2
     question_string: "Comment est calculée une retraite à taux plein? ",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
@@ -18,9 +18,9 @@ var all_questions = [{
         correct: "sur la base de 50 % du salaire annuel moyen ",
         wrong: ["sur la base de 45% du salaire annuel moyen ",
          "sur la base de 80 % du salaire annuel moyen "]
-  }
-}, {
-//Question 3
+    }
+  }, {
+    //Question 3
     question_string: "La pension de retraite comprend:",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",    
@@ -28,71 +28,83 @@ var all_questions = [{
         correct: "la retraite de base + la retraite complémentaire",
         wrong: ["la retraite de base + l’AAH",
          "la retraite de base + les économies personnelles"]
-  }
-}, {
-//Question 4
+   }
+  }, {
+    //Question 4
     question_string: "Je suis reconnu(e) « travailleur Handicapé », je n’ai pas cotisé suffisamment, je peux partir à la retraite à taux plein à l’âge légal ?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
     choices: {
         correct: "Vrai",
         wrong: ["Faux"]
-  }
-}, {
-//Question 5
+   }
+  }, {
+    //Question 5
     question_string: "Je suis né(e) en 1953 ? A quel âge, ai-je le droit de partir à la retraite ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
     linkedFile:"HelperTabs.png",
     choices: {
         correct: "61 ans",
         wrong: ["62 ans","60 ans","66 ans",]
-  }
-}, {
-//Question 6
+    }
+  }, {
+    //Question 6
     question_string: "Je suis né(e) en 1953 ? A quel âge, je peux partir à la retraite à taux plein ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
     linkedFile:"HelperTabs.png",
     choices: {
         correct: "66 ans",
         wrong: ["62 ans","60 ans","61 ans",]
-  }
-}, {
-//Question 7
+   }
+  }, {
+    //Question 7
     question_string: "Je suis né(e) en 1953 ? Combien de trimestres dois-je avoir cotisé pour pouvoir partir en retraite à taux plein ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
     linkedFile:"HelperTabs2.png",
     choices: {
         correct: "165",
         wrong: ["162","166"]
-  }
-}, {
-//Question 8
+    }
+  }, {
+    //Question 8
     question_string: "Jusqu’à quel âge peut-on travailler?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
     choices: {
         correct: "70 ans",
         wrong: ["65 ans","62 ans"]
-  }
-}, {
-//Question 9
+    }
+  }, {
+    //Question 9
     question_string: "Combien de trimestres (il y a) dans une année de travail ?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
     choices: {
         correct: "4 trimestres",
         wrong: ["3 trimestres","6 trimestres"]
-  }
-}, {
-//Question 10
+    }
+  }, {
+    //Question 10
     question_string: "Lequel de ces régimes n’est pas un régime de retraite ?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
     choices: {
         correct: "le régime alimentaire",
         wrong: ["le régime agricole","le régime général"]
-  }
-}];
+    }
+  }];
+// },
+//  {
+// //Question 11
+//     question_string: "Lequel de ces régimes n’est pas un régime de retraite ?",
+//     tips:"Consigne : Retrouver les bons groupes de mots de ces différentes pièces jointes. Pour cela faites glisser les mots au bon endroit/associez ces mots!",
+//     linkedFile:"",
+//     Type:"joinedList",
+//     choices: {
+//       lefties: ["acte","relevé", "avis", "attestation", "certificat", "bulletin", "livret", "carte", "notification", "déclaration"],
+//       righties: ["de naissance/de mariage","d’identité bancaire", "d’imposition/non imposition", "de Pôle emploi", "médical", "de salaire", "de famille", "d’identité", "d’attribution/de rejet AAH", "sur l’honneur"]
+//     }
+// }];
 
 // An object for a Quiz, which will contain Question objects.
 var Quiz = function(quiz_name) {
@@ -254,19 +266,22 @@ Question.prototype.render = function(container) {
   
   // Fill out the question label
   var question_string_h2;
-  if (container.children('h2').length === 0) {
-    question_string_h2 = $('<h2>').appendTo(container);
+  var headContainer = $("#headerData");
+  if (headContainer.children('h2').length === 0) {
+    question_string_h2 = $('<h2>').attr("style", "float:left;width:80%;text-align:center;").appendTo(headContainer);
   } else {
-    question_string_h2 = container.children('h2').first();
+    question_string_h2 = headContainer.children('h2').first();
   }
   question_string_h2.text(this.question_string);
 
   //Add tips
   if (this.tips) {
-    if (container.children('#tipsContainer').length > 0) {
+    if (headContainer.children('#tipsContainer').length > 0) {
       $('#tipsContainer').remove();
     };
-    var containerTips = $('<label>').attr("id", "tipsContainer").text(this.tips).appendTo(container); 
+    var containerTips = $('<label>').attr("id", "tipsContainer")
+                                    .attr("style", "float:left;width:80%;text-align:center;")
+                                    .text(this.tips).appendTo(headContainer); 
   }
 
   //Add linkedFile or clear them
@@ -340,7 +355,7 @@ $(document).ready(function() {
 
 function autoPlayVideo(){
   "use strict";
-  $("#videoContainer").html('<iframe id="tipsVideo" width="320" height="240" src="http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
+  $("#videoContainer").html('<iframe id="tipsVideo" width="240" height="180" src="http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg" frameborder="0" allowfullscreen wmode="Opaque"></iframe>');
 }
 
 function removeVideo(){
