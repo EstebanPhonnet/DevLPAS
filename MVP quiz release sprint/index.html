@@ -1,0 +1,57 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<head>
+	<link rel="stylesheet" href="./design.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="style/fireworks.css" media="screen" />
+</head>
+
+<body id="body" class="focused">
+<div class="fusion-header" style="overflow: visible;">    
+<div class="fusion-logo" id="headerData" data-margin-top="15px" data-margin-bottom="15px" data-margin-left="0px" data-margin-right="0px" style="margin-top: 15px;">
+        <a class="fusion-logo-link" href="http://www.laparoleauxsourds.fr/" style="margin-left:15px">
+            <img src="http://www.laparoleauxsourds.fr/wp-content/uploads/2017/04/logo_la-parole-aux-sourds.png" width="111" height="120" alt="La Parole Aux Sourds" class="fusion-logo-1x fusion-standard-logo">
+        </a>      
+        <canvas id="animationField" height="150px" width="150px">
+        </canvas>
+    </div>
+</div>
+
+  <div id="fireworks-template">
+    <div id="fw" class="firework"></div>
+    <div id="fp" class="fireworkParticle">
+      <img src="image/particles.gif" alt="" />
+    </div>
+  </div>
+
+  <div id="fireContainer"></div>
+
+
+  <div id="quiz" class="halfArea">
+    <h1 id="quiz-name" style="visibility:hidden;position:absolute;"></h1>
+    <button id="next-question-button">Next Question</button>
+    <button id="prev-question-button">Previous</button>
+    <button id="submit-button">Submit Answers</button>
+    <div id="quiz-results">
+      <p id="quiz-results-message"></p>
+      <p id="quiz-results-score"></p>
+    </div>
+  </div>
+
+  <div class="halfArea">
+    <div id="quizlinkedFile">
+    </div>
+    <div id="videoContainer">     
+    </div>
+    <div id="overlayProvider">     
+    </div>
+  </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="./funcs.js"></script>
+    <script type="text/javascript" src="./script/soundmanager2-nodebug-jsmin.js"></script>
+    <script type="text/javascript" src="./script/fireworks.js"></script>
+    <script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
+</body>
