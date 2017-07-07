@@ -127,6 +127,7 @@ button{
 
 .closeBtn {
   float:left;
+  text-align: center;
   width:100%;
 }
 
@@ -142,8 +143,8 @@ button{
   z-index:1001;
   display: block;
   position:absolute;
-  top:15%;
-  left:28%;
+  top:10%;
+  left:10%;
 }
 
 .focused #focused, .blurred #blurred { display: inline }

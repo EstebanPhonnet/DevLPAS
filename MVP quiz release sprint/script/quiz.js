@@ -1,5 +1,6 @@
 // Array of all the questions and choices to populate the questions. This might be saved in some JSON file or a database and we would have to read the data in.
-var all_questions = [{
+var all_questions = [
+  {
     // Question 1
     question_string: "Qu’est ce que la retraite par répartition? ",
     tips:"Consigne : cliquez sur la bonne réponse",
@@ -102,7 +103,8 @@ var all_questions = [{
         correct: "le régime alimentaire",
         wrong: ["le régime agricole","le régime général"]
     }
-  }, {
+  },
+  {
     //Question 11
     question_string: "Retrouver les bons groupes de mots de ces différentes pièces jointes",
     tips:"Consigne : Pour associer ces mots, vous devez cliquez sur un groupe de la liste de gauche et un groupe de la liste de droite, afin de les relier ensemble",
@@ -158,15 +160,15 @@ Quiz.prototype.render = function(container) {
       if($("#quiz").hasClass("fullArea")){
         $("#quiz").removeClass("fullArea");
       }
-      if(!$("#embedObject").hasClass("fullArea")){
-        $("#embedObject").addClass("fullArea");
+      if($("#embedObject").hasClass("fullArea")){
+        $("#embedObject").removeClass("fullArea");
       }
-      if($("#embedObject").hasClass("halfArea")){
-        $("#embedObject").removeClass("halfArea");
+      if(!$("#embedObject").hasClass("halfArea")){
+        $("#embedObject").addClass("halfArea");
       }
       $("#embedObject").attr("style", "display:inline-block;");
     } else if (self.questions[current_question_index].Type === "joinedList") {
-      $("#connection-canvas").attr("style", "width:1360px!important;height:500px!important;display:inline-block;");
+      $("#connection-canvas").attr("style", "width:1360px!important;height:450px!important;display:inline-block;");
       if(!$("#quiz").hasClass("fullArea")){
         $("#quiz").addClass("fullArea");
       }
@@ -231,8 +233,8 @@ Quiz.prototype.render = function(container) {
     //Display the score with the appropriate message
     var percentage = score / self.questions.length;
     var message;
-    if (percentage === 1) {
-      message = 'Parfait !'
+    // if (percentage === 1) {
+      message = 'Bien joué !'
       //Display some fireworks !
       createFirework(80,114,7,5,50,100,50,49,false,true);
       setTimeout(function(){ createFirework(88,39,2,4,23,6,54,59,false,true); }, 200);
@@ -243,13 +245,19 @@ Quiz.prototype.render = function(container) {
       setTimeout(function(){ createFirework(80,114,7,5,50,100,50,49,false,true); }, 1600);
       setTimeout(function(){ createFirework(88,39,2,4,23,6,54,59,false,true); }, 1800);
       setTimeout(function(){ createFirework(79,101,3,4,77,92,68,66,false,true); }, 2000);
-    }
+    // }
 
+    //remove answers
     var containerToUnfill = $('#question');
     if (containerToUnfill.children().length > 0) {
-    containerToUnfill.children().each(function() {
+      containerToUnfill.children().each(function() {
       $(this).remove();
     });
+
+    //remove tips and question label
+    $("#questionLabel").remove();
+    $("#tipsContainer").remove();
+
   }
     $('#quiz-results-message').text(message);
     $('#quiz-results-score').html('Vous avez obtenu <b>' + score + '/' + self.questions.length + '</b> questions correctes.');
@@ -283,7 +291,7 @@ var Question = function(question_string, correct_choice, wrong_choices, tips, li
   this.user_choice_index = null; // Index of the user's choice selection
   
   if (type === "checkedList") {
-    $("#connection-canvas").attr("style", "width:1360px!important;height:500px!important;display:none;")
+    $("#connection-canvas").attr("style", "width:1360px!important;height:450px!important;display:none;")
     // Random assign the correct choice an index
     this.correct_choice_index = Math.floor(Math.random() * wrong_choices.length + 1);
     
@@ -327,7 +335,7 @@ Question.prototype.render = function(container) {
   var headContainer = $("#headerData");
 
   if (headContainer.children('h2').length === 0) {
-    question_string_h2 = $('<h2>').attr("style", "float:left;width:80%;text-align:center;").appendTo(headContainer);
+    question_string_h2 = $('<h2>').attr("id", "questionLabel").attr("style", "float:left;width:80%;text-align:center;").appendTo(headContainer);
   } else {
     question_string_h2 = headContainer.children('h2').first();
   }
