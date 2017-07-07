@@ -130,6 +130,10 @@ button{
   width:100%;
 }
 
+#navLink{
+  float:left;
+}
+
 .blockOverlay {
   z-index: 1000;
 }
