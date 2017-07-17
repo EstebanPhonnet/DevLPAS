@@ -58,9 +58,16 @@ function drawLine(p1, p2) {
 function resizeCanvas() {
     var canvas = document.getElementById("connection-canvas");
     var ctx = canvas.getContext("2d");
+    var rect = canvas.parentNode.getBoundingClientRect();
 
     ctx.canvas.width  = window.innerWidth;
     ctx.canvas.height = window.innerHeight;
+}
+
+function setCanvasSize(canvas) {
+    var canvas = document.getElementById("connection-canvas");
+    canvas.width = rect.width;
+    canvas.height = rect.height;
 }
 
 resizeCanvas();

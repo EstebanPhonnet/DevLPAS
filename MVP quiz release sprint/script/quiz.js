@@ -168,7 +168,7 @@ Quiz.prototype.render = function(container) {
       }
       $("#embedObject").attr("style", "display:inline-block;");
     } else if (self.questions[current_question_index].Type === "joinedList") {
-      $("#connection-canvas").attr("style", "width:1360px!important;height:450px!important;display:inline-block;");
+      $("#connection-canvas").attr("style", "display:inline-block;"); //width:1360px!important;height:450px!important;
       if(!$("#quiz").hasClass("fullArea")){
         $("#quiz").addClass("fullArea");
       }
@@ -291,7 +291,7 @@ var Question = function(question_string, correct_choice, wrong_choices, tips, li
   this.user_choice_index = null; // Index of the user's choice selection
   
   if (type === "checkedList") {
-    $("#connection-canvas").attr("style", "width:1360px!important;height:450px!important;display:none;")
+    $("#connection-canvas").attr("style", "display:none;") //width:1360px!important;height:450px!important;
     // Random assign the correct choice an index
     this.correct_choice_index = Math.floor(Math.random() * wrong_choices.length + 1);
     

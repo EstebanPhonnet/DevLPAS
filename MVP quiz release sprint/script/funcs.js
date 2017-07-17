@@ -28,3 +28,13 @@ function autoPlayVideo(){
 function removeVideo(){
   $("#tipsVideo").remove();
 }
+
+$('.overlay').click(function(e){
+    var left = $(window).scrollLeft();
+    var top = $(window).scrollTop();
+
+    // //hide the overlay for now so the document can find the underlying elements
+    $(this).css('display','none');
+    // //use the current scroll position to deduct from the click position
+    $(document.elementFromPoint(e.pageX-left, e.pageY-top)).trigger('click');
+});

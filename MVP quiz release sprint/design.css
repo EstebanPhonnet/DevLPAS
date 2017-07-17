@@ -225,8 +225,10 @@ button{
 }
 
 #connection-canvas {
+    /*max-height: 450px !important;*/
     position: fixed;
-    top: 50;
+    top: 0;
     left: 0;
     z-index:2;
+    display:none;
 }
