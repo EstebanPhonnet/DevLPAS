@@ -7,11 +7,9 @@
 
 function onBlur() {
     document.body.className = 'blurred';
-    console.log(document.activeElement);
 };
 function onFocus(){
     document.body.className = 'focused';
-    console.log(document.activeElement);
 };
 
 function autoPlayVideo(){
@@ -37,4 +35,8 @@ $('.overlay').click(function(e){
     $(this).css('display','none');
     // //use the current scroll position to deduct from the click position
     $(document.elementFromPoint(e.pageX-left, e.pageY-top)).trigger('click');
+    if($(this).parent().hasClass("fullArea")) {
+      //prevent canvas from vanish when user click on the toolBox button
+      $(this).css('display','inline-block');
+    }
 });

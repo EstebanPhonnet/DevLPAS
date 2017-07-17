@@ -119,13 +119,13 @@ $(document).ready(function(){
 			dictionnary[word].synonymes.forEach(function(element, index) {
 				$("<li>").attr("id", "synonym-"+index).attr("class", "synonym").text(element).appendTo(listContainer);	
 			});
-			$("#tipsVideo").remove();
-			$('<iframe id="tipsVideo" width="420" height="315" frameborder="0" allowfullscreen></iframe>').attr("src", dictionnary[word].videoUrl)
-    		.appendTo("#iframe-container");
-			$("#tipsVideo").show();
+			$("#tipsVideo-toolBox").remove();
+			$('<iframe id="tipsVideo-toolBox" width="420" height="315" frameborder="0" allowfullscreen></iframe>').attr("src", dictionnary[word].videoUrl)
+    		.appendTo("#iframe-container-toolBox");
+			$("#tipsVideo-toolBox").show();
 			$("#searchErrorMsg").hide();
 		} else {
-			$("#tipsVideo").hide();
+			$("#tipsVideo-toolBox").hide();
 			$("#searchErrorMsg").show();
 		}
 		listContainer.appendTo("#wordSynonyms");
@@ -139,7 +139,6 @@ $(document).ready(function(){
 	});
 
 	$("#wordSearchBtn").click(function() {
-		console.log($("#wordSearch").val());
 		render($("#wordSearch").val());
 	});
 
