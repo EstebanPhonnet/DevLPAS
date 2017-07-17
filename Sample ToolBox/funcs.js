@@ -20,12 +20,50 @@ var dictionnary = {
 	   	"synonymes" : [
 	   		"Nier", "Repousser", "Retrait"
 	   	]
+	}, 
+   "Tacite": {
+	   	"description" :"Pas dit explicitement",
+	   	"videoUrl" :"http://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+	   	"synonymes" : [
+	   		"induit", "implicite", "sous-entendu"
+	   	]
+	}, 
+   "Nécéssaire": {
+	   	"description" :"Un besoin, \"il faut !\"",
+	   	"videoUrl" :"http://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+	   	"synonymes" : [
+	   		"absolu", "obligatoire", "essentiel"
+	   	]
+	}, 
+   "Prendre en charge (lettre)": {
+	   	"description" :"Accepter de verser la prestation (admninistration)",
+	   	"videoUrl" :"http://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+	   	"synonymes" : [
+	   		"Payer les frais d'admninistration", "S'occuper des coûts lié à la démarche"
+	   	]
 	}
-}
+};
 
 $(document).ready(function(){
 
-	//render("Domicile");
+	function loadWordDefinition(e) {
+		e.preventDefault();
+		$("#wordSearch").val(e.currentTarget.innerHTML);
+		$("#wordSearchBtn").trigger('click');
+		return false; 
+	}
+
+	function init() {
+		var wordListContainer = $("#wordList");
+		$.each(dictionnary, function(key, val){
+			var subContainer = $("<li>").attr("id", "word-"+key).attr("class", "wordListElement");
+			$("<a>").click(loadWordDefinition).text(key).appendTo(subContainer);
+			subContainer.appendTo(wordListContainer);
+		});
+
+	};
+
+	init();
 
 	function render(word) {
 		// $("#wordSearch").text(word);
@@ -55,7 +93,6 @@ $(document).ready(function(){
 	$("#wordSearch").on('keydown', function(e) {
 	    if (e.which == 13) {
 	        e.preventDefault();
-	        console.log($("#wordSearch").val());
 			render($("#wordSearch").val());
 	    }
 	});

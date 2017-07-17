@@ -4,7 +4,7 @@
 </head>
 
 <head>
-	<link rel="stylesheet" href="./design.css" type="text/css">
+	<link rel="stylesheet" href="./design.css" type="text/css" charset="utf-8">
 	<link href="./build/css/metro.css" rel="stylesheet">
 	<link href="./build/css/metro-icons.css" rel="stylesheet">
 </head>
@@ -24,8 +24,8 @@
 	<div id="flip">Traduction</div>
 	<div id="panel">
 		<div class="quarterSized">
-		<h2 id="wordToTranslate"></h2>
-		<p id="wordDescription"></p>
+		<h2 id="wordToTranslate"> Définition : </h2>
+		<p id="wordDescription"> ici vous trouverez la définition du mot recherché ci-contre</p>
 		</div>
 		<div class="quarterSized">
 			<div class="input-control text" data-role="input">
@@ -38,7 +38,8 @@
 				<p>Désolé, ce mot n'a pas été trouvé</p>
 			</div>
 			<h3 id="wordSynonyms">Synonymes : </h3>
-
+ 			<h3>Dictionnaire LPAS :</h3>
+ 			<ul id="wordList"></ul>
 		</div>
 		<div class="halfSized">
 			<div id="iframe-container">
@@ -53,6 +54,5 @@
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
     crossorigin="anonymous"></script>
     <script type="text/javascript" src="./funcs.js"></script>
-        <script src="./docs/js/jquery-3.1.0.min.js"></script>
     <script src="./build/js/metro.js"></script>
 </body>

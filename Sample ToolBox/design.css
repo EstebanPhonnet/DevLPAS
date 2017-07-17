@@ -1,4 +1,6 @@
-
+body {
+  font-family: 'MyWebFont', Arial, sans-serif !important;
+}
 
 .info{
   text-align: center;
@@ -38,6 +40,8 @@
 }
 
 .quarterSized {
+  border: solid black 1px;
+  border-radius: 50px;
   width:24%;
   float:left;
   margin:0.5%;
@@ -50,5 +54,23 @@
 }
 
 .synonym {
+  text-align: left;
+  line-height:28px;
   left:0px;
+}
+
+.wordListElement {
+  text-align: left;
+  left:0px;
+}
+
+li
+
+@font-face{ 
+  font-family: 'MyWebFont';
+  src: url('./WebFont.eot');
+  src: url('./WebFont.eot?iefix') format('eot'),
+       url('./WebFont.woff') format('font-woff'),
+       url('./WebFont.ttf') format('truetype'),
+       url('./WebFont.svg#webfont') format('svg');
 }
