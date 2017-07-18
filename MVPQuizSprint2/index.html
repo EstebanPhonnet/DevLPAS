@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,10 @@
 <body id="body" class="focused">
   <div class="fusion-header" style="overflow: visible;">    
   <div class="fusion-logo" id="headerData" data-margin-top="15px" data-margin-bottom="15px" data-margin-left="0px" data-margin-right="0px" style="margin-top: 15px;">
-          <a id="navLink" class="fusion-logo-link" href="http://www.laparoleauxsourds.fr/" style="margin-left:15px">
+<!--           <a id="navLink" class="fusion-logo-link" href="http://www.laparoleauxsourds.fr/" style="margin-left:15px">
               <img src="http://www.laparoleauxsourds.fr/wp-content/uploads/2017/04/logo_la-parole-aux-sourds.png" width="111" height="120" alt="La Parole Aux Sourds" class="fusion-logo-1x fusion-standard-logo">
-          </a>      
-          <canvas id="animationField" height="150px" width="150px">
+          </a>     -->  
+          <canvas id="animationField" height="0px" width="0px">
           </canvas>
       </div>
   </div>
@@ -34,9 +35,6 @@
   <div id="quiz" class="halfArea">
     <canvas id="connection-canvas" class="overlay"></canvas>  <!-- width:1360px!important;height:500px!important;-->
     <h1 id="quiz-name" style="visibility:hidden;position:absolute;"></h1>
-    <button id="next-question-button">Next Question</button>
-    <button id="prev-question-button">Previous</button>
-    <button id="submit-button">Submit Answers</button>
     <div id="quiz-results">
       <p id="quiz-results-message"></p>
       <p id="quiz-results-score"></p>
@@ -49,7 +47,12 @@
     <div id="videoContainer">     
     </div>
   </div>
-  <div id="flip">Traduction</div>
+  <div id="quizButtonDiv">
+    <button id="next-question-button" class="quizBtn">Valider</button>
+<!--     <button id="prev-question-button" class="quizBtn">Retour</button>
+ -->    <button id="submit-button" style="display:none;" class="quizBtn">Finir</button>
+  </div>
+  <div id="flip">Dictionnaire</div>
   <div id="panel">
     <div id="panelContent">
       <div class="quarterSized">
@@ -60,14 +63,14 @@
         <div class="input-control text" data-role="input">
             <input id="wordSearch" type="text">
             <button id="wordSearchBtn" class="button">
-              <span class="mif-search">Chercher</span>
+              <span class="mif-search">Cherche</span>
             </button>
         </div>
         <div id="searchErrorMsg" style="display: none;">
-          <p>Désolé, ce mot n'a pas été trouvé</p>
+          <p>Désolé, ce(s) mot(s) n'a/n'ont pas été trouvé</p>
         </div>
-        <h3 id="wordSynonyms">Synonymes : </h3>
-        <h3>Dictionnaire LPAS :</h3>
+        <h3 id="wordSynonyms">Synonymes</h3>
+        <h3 id="wordListLabel">Dictionnaire LPAS</h3>
         <ul id="wordList"></ul>
       </div>
       <div class="halfSized">

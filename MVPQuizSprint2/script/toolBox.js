@@ -110,22 +110,28 @@ $(document).ready(function(){
 		// $("#wordSearch").text(word);
 
 		var listContainer = $("<ul>").attr("id", "wordSynonymsList");
-		if (dictionnary[word]) {
-			$("#wordToTranslate").html(word);
-			$("#wordDescription").html(dictionnary[word].description);
+		var wordToFind = word.toLowerCase();
+		wordToFind = wordToFind.charAt(0).toUpperCase() + wordToFind.slice(1);
+ 
+		if (dictionnary[wordToFind]) {
+			$("#wordToTranslate").html(wordToFind);
+			$("#wordDescription").html(dictionnary[wordToFind].description);
 			if ($("#wordSynonymsList").length) {
 				$("#wordSynonymsList").remove();
 			}
-			dictionnary[word].synonymes.forEach(function(element, index) {
+			dictionnary[wordToFind].synonymes.forEach(function(element, index) {
 				$("<li>").attr("id", "synonym-"+index).attr("class", "synonym").text(element).appendTo(listContainer);	
 			});
 			$("#tipsVideo-toolBox").remove();
-			$('<iframe id="tipsVideo-toolBox" width="420" height="315" frameborder="0" allowfullscreen></iframe>').attr("src", dictionnary[word].videoUrl)
+			//$('<iframe id="tipsVideo-toolBox" width="420" height="315" frameborder="0" allowfullscreen></iframe>').attr("src", dictionnary[word].videoUrl)
+    		$('<img id="tipsVideo-toolBox">').attr("src", "http://www.laparoleauxsourds.fr/wp-content/uploads/2017/04/formationlsf.gif")
     		.appendTo("#iframe-container-toolBox");
 			$("#tipsVideo-toolBox").show();
 			$("#searchErrorMsg").hide();
 		} else {
 			$("#tipsVideo-toolBox").hide();
+			$("#wordToTranslate").html(" Définition : ");
+			$("#wordDescription").html(" ici vous trouverez la définition du mot recherché ci-contre");
 			$("#searchErrorMsg").show();
 		}
 		listContainer.appendTo("#wordSynonyms");

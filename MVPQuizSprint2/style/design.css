@@ -1,19 +1,40 @@
+ html, body, h1, h2, h3, h4, h5, h6, li, ul, p, textarea, button, label, input {
+    font-family: 'MyWebFont' !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
+  }
 html, body{
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   color: #000;
   background-color: #FFFFFF;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-weight: 200;
-}
-
 h2 {
   margin-left: 40px;
+}
+
+p {
+  margin:20px 20px 20px 20px !important;
+}
+
+.rowAnswer {
+  width:100%;
+}
+
+.pAnswer {
+  background-color: #FFFFFF;
+  color: #9629ba;
+  border: solid #4893B3 1px;
+  border-radius: 50px;
+  display: block;
+  min-width:100px;
+  width:50%;
+  margin-left:25%;
+  padding:5px 5px 5px 5px;
+  text-align: center;
 }
 
 input{
@@ -24,12 +45,35 @@ input{
   outline: none;
 }
 
-button{
-  z-index:3;
+.row {
+    font-size: 20px !important;
+    line-height: 20px !important;
+}
+
+#quizButtonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+.quizBtn{
+  float:left;
+  z-index:1002;
   padding: 8px 20px;
-  background-color: #2ecc71;
-  color: #000;
-  border: none;
+  background-color: #FFFFFF;
+  color: #9629ba;
+  border: solid #4893B3 1px;
+  cursor: pointer;
+}
+
+.quizBtn:hover{
+  z-index:1002;
+  padding: 8px 20px;
+  background-color: #9629ba;
+  color: #FFFFFF;
+  border: solid #4893B3 1px;
   cursor: pointer;
 }
 
@@ -93,9 +137,6 @@ button{
   margin: 20px auto;
 }
 
-#quiz-results{
-}
-
 #quiz {
   float:left;
   margin-left: 20px;
@@ -119,10 +160,29 @@ button{
   margin-left: 20px;
 }
 
+#tipsContainer {
+  display: block;
+
+  width:50%;
+  margin-left: 25%;
+  text-align: center;
+}
+
+ #questionLabel {
+  width:50%;
+  margin-left: 25%;
+  text-align: center;
+ }
+
 #quizlinkedFile{
   float:left;
   width:25%;
   margin-top: 10px;
+}
+
+.videoMessageTips {
+  text-align: center;
+  color: white;
 }
 
 .closeBtn {
@@ -136,11 +196,11 @@ button{
 }
 
 .blockOverlay {
-  z-index: 1000;
+  z-index: 1003;
 }
 
 #videoContainer {
-  z-index:1001;
+  z-index:1004;
   display: block;
   position:absolute;
   top:10%;
@@ -168,13 +228,15 @@ button{
 
 .answer-container
 {
+    border-radius: 50px;
     width:10% !important;
     height:30px !important;
-    background-color:#ccc;
-    border:1px solid #ccc;
+    background-color:#FFFFFF;
+    color:#9629ba;
+    border:1px solid #4893B3;
     margin-left: 2px;
     margin-right: 2px;
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 0px;
     /*margin:2px;*/
     float:left;
@@ -189,9 +251,10 @@ button{
 
 .answer-container:hover, .answer-container:focus, .answer-container:active
 {
-    background-color: #0076e9;
-    color: white;
-    border: 1px solid #0076e9;
+    border-radius: 50px;
+    background-color: #9629ba;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
 }
 
 .round-pointer-right
@@ -221,7 +284,8 @@ button{
 }
 
 .selected {
-    background-color: red;
+    background-color: #9629ba;
+    color:#FFFFFF;
 }
 
 #connection-canvas {

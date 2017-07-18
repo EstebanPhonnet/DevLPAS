@@ -1,5 +1,7 @@
-  body {
-    font-family: 'MyWebFont', Arial, sans-serif !important;
+ html, body, h1, h2, h3, h4, h5, h6, li, ul, p, textarea, button, label, input {
+    font-family: 'MyWebFont' !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
   }
 
   .info{
@@ -11,27 +13,49 @@
     color: #000;
   }
 
-  .info button{
+/*  .info button{
     margin: 30px 0;
     -webkit-appearance: none;
      -moz-appearance: none;
      appearance: none;
-  }
+  }*/
 
-  #flip {
-    border-top-left-radius: 90px;
-    border-top-right-radius: 90px;
+  #flip{
+    text-align: center;
     position: fixed;
-    width:180px;
-    left:45%;
+    width:200px;
+    left:40%;
     bottom: 50px;
+    border-radius: 50px;
+    z-index:1003;
+    padding: 8px 20px;
+    background-color: #FFFFFF;
+    color: #9629ba;
+    border: solid #4893B3 1px;
+    cursor: pointer;
   }
 
-  #panel, #flip {
+  #flip:hover{
+    text-align: center;
+    position: fixed;
+    width:200px;
+    left:40%;
+    bottom: 50px;
+    border-radius: 50px;
+    z-index:3;
+    padding: 8px 20px;
+    background-color: #9629ba;
+    color: #FFFFFF;
+    border: solid #4893B3 1px;
+    cursor: pointer;
+  }
+
+  #panel {
+    z-index:1003;
     padding: 5px;
     text-align: center;
-    background-color: #e5eecc;
-    border: solid 1px #c3c3c3;
+    background-color: #f2faff;
+    border: solid 1px #4893B3;
   }
 
   #panel {
@@ -48,7 +72,7 @@
   }
 
 .quarterSized {
-  border: solid black 1px;
+  border: solid #4893B3 1px;
   border-radius: 50px;
   width:24%;
   float:left;
@@ -76,22 +100,57 @@
 
 #wordSearch {
   float:left;
-  width:60%;
+  width:50%;
+}
+
+#wordSynonyms {
+  float:left;
+  width:80%;
+  left:10%;
 }
 
 #wordSearchBtn {
+  width:100px;
+  height:20px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  color: #9629ba;
+  border: solid #4893B3 1px;
+  cursor: pointer;
   float:left;
-  width:38%;
 }
 
-#wordSynonym {
+#wordSearchBtn:hover {
+  width:100px;
+  height:20px;
+  border-radius: 20px;
+  background-color: #9629ba;
+  color: #FFFFFF;
+  border: solid #4893B3 1px;
+  cursor: pointer;
+  float:left;
+}
+
+#wordSynonyms {
+  float:left;
+  clear:both;
+  width:100%;
+}
+
+#searchErrorMsg {
+  float:left;
+  clear:both;
+}
+
+#wordListLabel {
   float:left;
   clear:both;
 }
 
 #wordList {
+  float:left;
   overflow: scroll;
-  height: 200px;
+  height: 150px;
 }
 
 @font-face{ 

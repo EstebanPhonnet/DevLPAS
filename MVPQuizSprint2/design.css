@@ -125,6 +125,12 @@ button{
   margin-top: 10px;
 }
 
+.videoMessageTips {
+  position: fixed;
+  top:0px;
+  left:50%;
+}
+
 .closeBtn {
   float:left;
   text-align: center;
