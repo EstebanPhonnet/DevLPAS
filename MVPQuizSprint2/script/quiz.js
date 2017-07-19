@@ -5,7 +5,7 @@ var all_questions = [
     question_string: "Qu’est ce que la retraite par répartition? ",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"C:/Users/stouff/Desktop/Devs/DevLPAS-master/MVPQuizSprint2/media/Gif1-Retraite.gif",
+    successMedia:"./media/Gif1-Retraite.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -141,6 +141,8 @@ var all_questions = [
   }
   ];
 
+var timerValue = 0;
+
 // An object for a Quiz, which will contain Question objects.
 var Quiz = function(quiz_name) {
   // Private fields for an instance of a Quiz object.
@@ -207,6 +209,9 @@ Quiz.prototype.render = function(container) {
 
   // Helper function for changing the question and updating the buttons
   function change_question() {
+
+    timerValue = performance.now();
+
     self.questions[current_question_index].render(question_container);
     $('#prev-question-button').prop('disabled', current_question_index === 0);
     // $('#next-question-button').prop('disabled', current_question_index === self.questions.length - 1);
@@ -232,15 +237,17 @@ Quiz.prototype.render = function(container) {
   change_question();
   
   // Add listener for the previous question button
-  $('#prev-question-button').click(function() {
-    if (current_question_index > 0) {
-      current_question_index--;
-      change_question();
-    }
-  });
+  // $('#prev-question-button').click(function() {
+  //   if (current_question_index > 0) {
+  //     current_question_index--;
+  //     change_question();
+  //   }
+  // });
   
   // Add listener for the next question button
   $('#next-question-button').click(function() {
+    //Log answer
+    updateJsonResult(current_question_index, self.questions);
     //Check Answer Here
     if (self.questions[current_question_index].user_choice_index === self.questions[current_question_index].correct_choice_index || self.questions[current_question_index].Type === "joinedList"){
       if (current_question_index < self.questions.length - 1) {
@@ -271,11 +278,16 @@ Quiz.prototype.render = function(container) {
       setTimeout(function(){ createFirework(79,101,3,4,77,92,68,66,false,true); }, 2000);
   }
 
+  function removeAnswers() {
+    
+  }
   // Add listener for the submit answers button
   $('#submit-button').click(function() {
-      // Show successMedia
-      var thisDisplay = self.questions[current_question_index].successMedia;
-      autoPlayGif(thisDisplay);
+    // TODO send result to db / stock file
+    console.log(quizResult);
+    // Show successMedia
+    var thisDisplay = self.questions[current_question_index].successMedia;
+    autoPlayGif(thisDisplay);
 
     // Determine how many questions the user got right
     var score = 0;
@@ -296,16 +308,13 @@ Quiz.prototype.render = function(container) {
     var containerToUnfill = $('#question');
     if (containerToUnfill.children().length > 0) {
       containerToUnfill.children().each(function() {
-      $(this).remove();
-    });
-
-    $("#next-question-button").remove();
-
-    //remove tips and question label
-    $("#questionLabel").remove();
-    $("#tipsContainer").remove();
-
-  }
+        $(this).remove();
+      });
+      $("#next-question-button").remove();
+      //remove tips and question label
+      $("#questionLabel").remove();
+      $("#tipsContainer").remove();
+    }
     $('#quiz-results-message').text(message);
     $('#quiz-results-score').html('Vous avez obtenu <b>' + score + '/' + self.questions.length + '</b> questions correctes.');
     $('#quiz-results').slideDown();
@@ -373,6 +382,23 @@ var Question = function(question_string, correct_choice, wrong_choices, tips, li
   }
 }
 
+function cleanAndAddLinkedFile(linkedFile) {
+  var linkedFileContainer = $("#quizlinkedFile")
+  if (linkedFileContainer.children('img').length > 0) {
+    linkedFileContainer.children('img').each(function() {
+      $(this).remove();
+    });
+  }
+  if (linkedFile) {
+    linkedFileContainer.prepend('<img id="linkedImage" src="./media/'+ linkedFile +'" />')
+    $("#quiz").addClass("halfArea");
+    $("#quiz").removeClass("fullArea");
+  } else {
+    $("#quiz").addClass("fullArea");
+    $("#quiz").removeClass("halfArea");
+  }
+}
+
 // A function that you can enact on an instance of a question object. This function is called render() and takes in a variable called the container, which is the <div> that I will render the question in. This question will "return" with the score when the question has been answered.
 Question.prototype.render = function(container) {
   // For when we're out of scope
@@ -398,24 +424,7 @@ Question.prototype.render = function(container) {
                                     .text(this.tips).appendTo(headContainer); 
   }
 
-  //Add linkedFile or clear them
-  var linkedFileContainer = $("#quizlinkedFile")
-  if (linkedFileContainer.children('img').length > 0) {
-    linkedFileContainer.children('img').each(function() {
-      $(this).remove();
-    });
-  }
-  console.log(this.linkedFile);
-  if (this.linkedFile) {
-    linkedFileContainer.prepend('<img id="linkedImage" src="./media/'+ this.linkedFile +'" />')
-    $("#quiz").addClass("halfArea");
-    $("#quiz").removeClass("fullArea");
-  } else {
-    console.log("full");
-    $("#quiz").addClass("fullArea");
-    $("#quiz").removeClass("halfArea");
-  }
-
+  cleanAndAddLinkedFile(this.linkedFile);
   // Clear old answers and create new ones
   if (container.children('p').length > 0) {
     container.children('p').each(function() {
@@ -487,6 +496,32 @@ var setChoicesCheckedList = function (container, self) {
     });
 }
 
+var quizResult = [];
+var tempAnswer = [];
+
+var initSetTempAnswer = function () {
+  tempAnswer = {
+    nbTry : 0,
+    answers : [],
+    question : "",
+    timeOnthisQuestion : 0
+  };
+}
+
+var updateJsonResult = function(index, questions) {
+  // console.log(questions[index]);
+  tempAnswer.question = questions[index].question_string;
+  tempAnswer.nbTry += 1;
+  tempAnswer.answers.push(questions[index].choices[questions[index].user_choice_index]);
+  tempAnswer.timeOnthisQuestion += (performance.now() - timerValue) / 1000;
+  timerValue = performance.now();
+
+  if (questions[index].user_choice_index === questions[index].correct_choice_index) {
+    quizResult.push(tempAnswer);
+    initSetTempAnswer();
+  }
+}
+
 // "Main method" which will create all the objects and render the Quiz.
 $(document).ready(function() {
   // Create an instance of the Quiz object
@@ -508,4 +543,5 @@ $(document).ready(function() {
   // Render the quiz
   var quiz_container = $('#quiz');
   quiz.render(quiz_container);
+  initSetTempAnswer();
 });
