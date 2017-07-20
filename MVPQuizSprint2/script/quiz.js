@@ -193,20 +193,20 @@ Quiz.prototype.render = function(container) {
   }
 
   function joinedListDesignBehaviour() {
-      $("#connection-canvas").attr("style", "display:inline-block;"); //width:1360px!important;height:450px!important;
+      $("#connection-canvas").attr("style", "display:inline-block;");
       if(!$("#quiz").hasClass("fullArea")){
         $("#quiz").addClass("fullArea");
       }
       if($("#quiz").hasClass("halfArea")){
         $("#quiz").removeClass("halfArea");
       }
-      if(!$("#embedObject").hasClass("fullArea")){
-        $("#embedObject").addClass("fullArea");
-      }
-      if($("#embedObject").hasClass("halfArea")){
-        $("#embedObject").removeClass("halfArea");
-      }
-      $("#embedObject").attr("style", "display:none;");
+      // if(!$("#embedObject").hasClass("fullArea")){
+      //   $("#embedObject").addClass("fullArea");
+      // }
+      // if($("#embedObject").hasClass("halfArea")){
+      //   $("#embedObject").removeClass("halfArea");
+      // }
+      // $("#embedObject").attr("style", "display:none;");
       $("<div>").attr("id", "joinedListResult").attr("display", "none").appendTo($("#embedObject"));
   }
 
