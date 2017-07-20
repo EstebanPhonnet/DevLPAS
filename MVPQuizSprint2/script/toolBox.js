@@ -153,7 +153,7 @@ $(document).ready(function(){
 	$("#flip").click(function(){
 		$("#panel").slideToggle("slow");
 		$("#flip").animate({
-			"marginBottom" : toggleValue + "=450px"
+			"marginBottom" : toggleValue + "=500px"
 		}, 600, function(){});
 		if (toggleValue === "+") {
 			toggleValue = "-";

@@ -21,6 +21,15 @@ function listenToClick() {
     }
 }
 
+var userAnswer = [];
+
+function getSelection(elem1, elem2) {
+    var contentElem1 = elem1.substring(0, elem1.indexOf('<'));
+    var contentElem2 = elem2.substring(0, elem2.indexOf('<'));
+    userAnswer.push(contentElem2+"-"+contentElem1); 
+    $("#joinedListResult").text(userAnswer);
+}
+
 // This is fired when a answer-container is clicked.
 function selectAnswer(event) {
     if (lastSelection) {
@@ -31,6 +40,7 @@ function selectAnswer(event) {
         lastSelection = this;
         this.element.classList.add('selected');
     } else {
+        getSelection(this.element.innerHTML, lastSelection.element.innerHTML);
         drawLine(getPoint(this.element), getPoint(lastSelection.element));
         lastSelection = null;
     }

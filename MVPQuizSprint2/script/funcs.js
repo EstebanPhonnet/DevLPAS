@@ -19,20 +19,20 @@ function autoPlayVideo(videoToPlay){
   onBlur();
   $("#questionLabel").css('visibility', 'hidden');
   $("#tipsContainer").css('visibility', 'hidden');
-  $("#videoContainer").html('<div id="iframe-container"><h3 class="videoMessageTips">Vous avez une petite erreur, voici une vidéo explicative pour vous aider</h3><a href="#" class="closeBtn" onclick="this.parentNode.parentNode.removeChild(this.parentNode);unblur();"> >>>Fermer la vidéo<<< </a>' +
+  $("#videoContainer").html('<div id="iframe-container"><h3 class="videoMessageTips">Vous avez une petite erreur, voici une vidéo explicative pour vous aider</h3><a href="#" class="closeBtn" onclick="this.parentNode.parentNode.removeChild(this.parentNode);unblur();"> >>>retour à la question<<< </a>' +
     '<iframe id="tipsVideo" width="840" height="473" src="'+ videoToPlay+ '" frameborder="0" allowfullscreen wmode="opaque"></iframe></div>');
 }
 
 function autoPlayGif(gifToPlay){
   "use strict";
-  // $("#videoContainer").unblock();
+  $("#videoContainer").unblock();
   if (gifToPlay) {
-    $("#quiz").block({ message: null });
-    onBlur();
+    // $("#quiz").block({ message: null });
+    // onBlur();
     $("#questionLabel").css('visibility', 'hidden');
     $("#tipsContainer").css('visibility', 'hidden');
-    $("#videoContainer").html('<div id="iframe-container"><h3 class="videoMessageTips">  Bravo !  </h3><a href="#" class="closeBtn" onclick="this.parentNode.parentNode.removeChild(this.parentNode);unblur();"> Aller à la question suivante </a>' +
-      '<img width="840" height="473" src="' + gifToPlay + '" id="sucessGif"></div>');
+    $("#videoContainer").html('<div id="iframe-container"><h3 class="videoMessageTips">  Bravo !  </h3><a href="#" class="closeBtn" onclick="this.parentNode.parentNode.removeChild(this.parentNode);unblur();"> Continuer ? (clic ici) </a>' +
+      '<img height="100%" width="100%" src="' + gifToPlay + '" id="sucessGif"></div>');
   }
 }
 

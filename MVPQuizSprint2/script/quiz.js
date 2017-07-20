@@ -5,7 +5,7 @@ var all_questions = [
     question_string: "Qu’est ce que la retraite par répartition? ",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"./media/Gif1-Retraite.gif",
+    successMedia:"./media/Question1.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -18,7 +18,7 @@ var all_questions = [
     question_string: "Comment est calculée une retraite à taux plein? ",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question2.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -32,7 +32,7 @@ var all_questions = [
     question_string: "La pension de retraite comprend:",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question3.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -46,7 +46,7 @@ var all_questions = [
     question_string: "Je suis reconnu(e) « travailleur Handicapé », je n’ai pas cotisé suffisamment, je peux partir à la retraite à taux plein à l’âge légal ?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question4.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -58,7 +58,7 @@ var all_questions = [
     question_string: "Je suis né(e) en 1953 ? A quel âge, ai-je le droit de partir à la retraite ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
     linkedFile:"HelperTabs.png",
-    successMedia:"",
+    successMedia:"./media/Question5.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -70,7 +70,7 @@ var all_questions = [
     question_string: "Je suis né(e) en 1953 ? A quel âge, je peux partir à la retraite à taux plein ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
     linkedFile:"HelperTabs.png",
-    successMedia:"",
+    successMedia:"./media/Question6.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -82,7 +82,7 @@ var all_questions = [
     question_string: "Je suis né(e) en 1953 ? Combien de trimestres dois-je avoir cotisé pour pouvoir partir en retraite à taux plein ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
     linkedFile:"HelperTabs2.png",
-    successMedia:"",
+    successMedia:"./media/Question7.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -94,7 +94,7 @@ var all_questions = [
     question_string: "Jusqu’à quel âge peut-on travailler?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question8.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -106,7 +106,7 @@ var all_questions = [
     question_string: "Combien de trimestres (il y a) dans une année de travail ?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question9.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -118,7 +118,7 @@ var all_questions = [
     question_string: "Lequel de ces régimes n’est pas un régime de retraite ?",
     tips:"Consigne : cliquez sur la bonne réponse",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question10.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
     choices: {
@@ -131,17 +131,16 @@ var all_questions = [
     question_string: "Retrouver les bons groupes de mots de ces différentes pièces jointes",
     tips:"Consigne : Pour associer ces mots, vous devez cliquez sur un groupe de la liste de gauche et un groupe de la liste de droite, afin de les relier ensemble",
     linkedFile:"",
-    successMedia:"",
+    successMedia:"./media/Question10.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"joinedList",
     choices: {
       lefties: ["acte","relevé", "avis", "attestation", "certificat", "bulletin", "livret", "carte", "notification", "déclaration"],
-      righties: ["de naissance/de mariage","d’identité bancaire", "d’imposition/non imposition", "de Pôle emploi", "médical", "de salaire", "de famille", "d’identité", "d’attribution/de rejet AAH", "sur l’honneur"]
+      righties: ["de salaire", "d’identité", "médical","sur l’honneur", "de Pôle emploi","de naissance/de mariage", "d’imposition/non imposition", "d’identité bancaire", "de famille", "d’attribution/de rejet AAH"],
+      correctJoin : ["acte-de naissance/de mariage", "relevé-d’identité bancaire", "avis-d’imposition/non imposition", "attestation-de Pôle emploi", "certificat-médical", "bulletin-de salaire", "livret-de famille", "carte-d’identité", "notification-d’attribution/de rejet AAH", "déclaration-sur l’honneur"]
     }
   }
   ];
-
-var timerValue = 0;
 
 // An object for a Quiz, which will contain Question objects.
 var Quiz = function(quiz_name) {
@@ -188,6 +187,9 @@ Quiz.prototype.render = function(container) {
         $("#embedObject").addClass("halfArea");
       }
       $("#embedObject").attr("style", "display:inline-block;");
+      if ($("#joinedListResult")) {
+        $("#joinedListResult").remove();
+      }
   }
 
   function joinedListDesignBehaviour() {
@@ -205,15 +207,28 @@ Quiz.prototype.render = function(container) {
         $("#embedObject").removeClass("halfArea");
       }
       $("#embedObject").attr("style", "display:none;");
+      $("<div>").attr("id", "joinedListResult").attr("display", "none").appendTo($("#embedObject"));
+  }
+
+  function validateJoinedList(correctJoin) {
+    var values = $("#joinedListResult").text().split(",");
+    if (values.length == correctJoin.length){
+      for (var i = 0; i < values.length;i++) {
+        var reverseChoicesTab = values[i].split("-");
+        var reverseChoices = reverseChoicesTab[1]+"-"+reverseChoicesTab[0];
+        if ($.inArray(values[i], correctJoin) == -1 && $.inArray(reverseChoices, correctJoin) == -1) {
+          return false;
+        }
+      }
+      return true;
+    }
+    return false;
   }
 
   // Helper function for changing the question and updating the buttons
   function change_question() {
-
-    timerValue = performance.now();
-
     self.questions[current_question_index].render(question_container);
-    $('#prev-question-button').prop('disabled', current_question_index === 0);
+    //$('#prev-question-button').prop('disabled', current_question_index === 0);
     // $('#next-question-button').prop('disabled', current_question_index === self.questions.length - 1);
     
     if (self.questions[current_question_index].Type === "checkedList") {
@@ -237,19 +252,17 @@ Quiz.prototype.render = function(container) {
   change_question();
   
   // Add listener for the previous question button
-  // $('#prev-question-button').click(function() {
-  //   if (current_question_index > 0) {
-  //     current_question_index--;
-  //     change_question();
-  //   }
-  // });
+  $('#prev-question-button').click(function() {
+    if (current_question_index > 0) {
+      current_question_index--;
+      change_question();
+    }
+  });
   
   // Add listener for the next question button
   $('#next-question-button').click(function() {
-    //Log answer
-    updateJsonResult(current_question_index, self.questions);
     //Check Answer Here
-    if (self.questions[current_question_index].user_choice_index === self.questions[current_question_index].correct_choice_index || self.questions[current_question_index].Type === "joinedList"){
+    if (self.questions[current_question_index].user_choice_index === self.questions[current_question_index].correct_choice_index || (self.questions[current_question_index].Type === "joinedList" && validateJoinedList(self.questions[current_question_index].correctJoin))){
       if (current_question_index < self.questions.length - 1) {
         var thisDisplay = self.questions[current_question_index].successMedia;
         autoPlayGif(thisDisplay);
@@ -278,16 +291,11 @@ Quiz.prototype.render = function(container) {
       setTimeout(function(){ createFirework(79,101,3,4,77,92,68,66,false,true); }, 2000);
   }
 
-  function removeAnswers() {
-    
-  }
   // Add listener for the submit answers button
   $('#submit-button').click(function() {
-    // TODO send result to db / stock file
-    console.log(quizResult);
-    // Show successMedia
-    var thisDisplay = self.questions[current_question_index].successMedia;
-    autoPlayGif(thisDisplay);
+      // Show successMedia
+      var thisDisplay = self.questions[current_question_index].successMedia;
+      autoPlayGif(thisDisplay);
 
     // Determine how many questions the user got right
     var score = 0;
@@ -308,13 +316,16 @@ Quiz.prototype.render = function(container) {
     var containerToUnfill = $('#question');
     if (containerToUnfill.children().length > 0) {
       containerToUnfill.children().each(function() {
-        $(this).remove();
-      });
-      $("#next-question-button").remove();
-      //remove tips and question label
-      $("#questionLabel").remove();
-      $("#tipsContainer").remove();
-    }
+      $(this).remove();
+    });
+
+    $("#next-question-button").remove();
+
+    //remove tips and question label
+    $("#questionLabel").remove();
+    $("#tipsContainer").remove();
+
+  }
     $('#quiz-results-message').text(message);
     $('#quiz-results-score').html('Vous avez obtenu <b>' + score + '/' + self.questions.length + '</b> questions correctes.');
     $('#quiz-results').slideDown();
@@ -337,7 +348,7 @@ Quiz.prototype.render = function(container) {
 }
 
 // An object for a Question, which contains the question, the correct choice, and wrong choices. This block is the constructor.
-var Question = function(question_string, correct_choice, wrong_choices, tips, linkedFile, type, successMedia, failMedia) {
+var Question = function(question_string, correct_choice, wrong_choices, tips, linkedFile, type, successMedia, failMedia, correctJoin) {
   // Private fields for an instance of a Question object.
   this.question_string = question_string;
   this.tips = tips;
@@ -346,6 +357,7 @@ var Question = function(question_string, correct_choice, wrong_choices, tips, li
   this.successMedia = successMedia;
   this.failMedia = failMedia;
   this.choices = [];
+  this.correctJoin = correctJoin;
   this.user_choice_index = null; // Index of the user's choice selection
   if (type === "checkedList") {
     $("#connection-canvas").attr("style", "display:none;") //width:1360px!important;height:450px!important;
@@ -382,23 +394,6 @@ var Question = function(question_string, correct_choice, wrong_choices, tips, li
   }
 }
 
-function cleanAndAddLinkedFile(linkedFile) {
-  var linkedFileContainer = $("#quizlinkedFile")
-  if (linkedFileContainer.children('img').length > 0) {
-    linkedFileContainer.children('img').each(function() {
-      $(this).remove();
-    });
-  }
-  if (linkedFile) {
-    linkedFileContainer.prepend('<img id="linkedImage" src="./media/'+ linkedFile +'" />')
-    $("#quiz").addClass("halfArea");
-    $("#quiz").removeClass("fullArea");
-  } else {
-    $("#quiz").addClass("fullArea");
-    $("#quiz").removeClass("halfArea");
-  }
-}
-
 // A function that you can enact on an instance of a question object. This function is called render() and takes in a variable called the container, which is the <div> that I will render the question in. This question will "return" with the score when the question has been answered.
 Question.prototype.render = function(container) {
   // For when we're out of scope
@@ -424,7 +419,22 @@ Question.prototype.render = function(container) {
                                     .text(this.tips).appendTo(headContainer); 
   }
 
-  cleanAndAddLinkedFile(this.linkedFile);
+  //Add linkedFile or clear them
+  var linkedFileContainer = $("#quizlinkedFile")
+  if (linkedFileContainer.children('img').length > 0) {
+    linkedFileContainer.children('img').each(function() {
+      $(this).remove();
+    });
+  }
+  if (this.linkedFile) {
+    linkedFileContainer.prepend('<img id="linkedImage" src="./media/'+ this.linkedFile +'" />')
+    $("#quiz").addClass("halfArea");
+    $("#quiz").removeClass("fullArea");
+  } else {
+    $("#quiz").addClass("fullArea");
+    $("#quiz").removeClass("halfArea");
+  }
+
   // Clear old answers and create new ones
   if (container.children('p').length > 0) {
     container.children('p').each(function() {
@@ -496,32 +506,6 @@ var setChoicesCheckedList = function (container, self) {
     });
 }
 
-var quizResult = [];
-var tempAnswer = [];
-
-var initSetTempAnswer = function () {
-  tempAnswer = {
-    nbTry : 0,
-    answers : [],
-    question : "",
-    timeOnthisQuestion : 0
-  };
-}
-
-var updateJsonResult = function(index, questions) {
-  // console.log(questions[index]);
-  tempAnswer.question = questions[index].question_string;
-  tempAnswer.nbTry += 1;
-  tempAnswer.answers.push(questions[index].choices[questions[index].user_choice_index]);
-  tempAnswer.timeOnthisQuestion += (performance.now() - timerValue) / 1000;
-  timerValue = performance.now();
-
-  if (questions[index].user_choice_index === questions[index].correct_choice_index) {
-    quizResult.push(tempAnswer);
-    initSetTempAnswer();
-  }
-}
-
 // "Main method" which will create all the objects and render the Quiz.
 $(document).ready(function() {
   // Create an instance of the Quiz object
@@ -532,9 +516,9 @@ $(document).ready(function() {
     // Create a new Question object
     var question = null;
     if (all_questions[i].Type === "checkedList") {
-      question = new Question(all_questions[i].question_string, all_questions[i].choices.correct, all_questions[i].choices.wrong, all_questions[i].tips, all_questions[i].linkedFile, all_questions[i].Type, all_questions[i].successMedia, all_questions[i].failMedia);
+      question = new Question(all_questions[i].question_string, all_questions[i].choices.correct, all_questions[i].choices.wrong, all_questions[i].tips, all_questions[i].linkedFile, all_questions[i].Type, all_questions[i].successMedia, all_questions[i].failMedia, "");
     } else if (all_questions[i].Type === "joinedList") {
-      question = new Question(all_questions[i].question_string, all_questions[i].choices.righties, all_questions[i].choices.lefties, all_questions[i].tips, all_questions[i].linkedFile, all_questions[i].Type, all_questions[i].successMedia, all_questions[i].failMedia);
+      question = new Question(all_questions[i].question_string, all_questions[i].choices.righties, all_questions[i].choices.lefties, all_questions[i].tips, all_questions[i].linkedFile, all_questions[i].Type, all_questions[i].successMedia, all_questions[i].failMedia, all_questions[i].choices.correctJoin);
     }
     // Add the question to the instance of the Quiz object that we created previously
     quiz.add_question(question);
@@ -543,5 +527,4 @@ $(document).ready(function() {
   // Render the quiz
   var quiz_container = $('#quiz');
   quiz.render(quiz_container);
-  initSetTempAnswer();
 });

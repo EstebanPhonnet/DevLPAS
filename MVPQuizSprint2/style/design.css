@@ -162,8 +162,8 @@ input{
 
 #tipsContainer {
   display: block;
-
   width:50%;
+  margin-top: 5%;
   margin-left: 25%;
   text-align: center;
 }
@@ -181,14 +181,27 @@ input{
 }
 
 .videoMessageTips {
-  text-align: center;
-  color: white;
+  z-index:1005;
+  position:fixed;
+  width:20%;
+  margin-top:0%!important;
+  margin-left:35%;
+  color: black;
+  background-color: white;
 }
 
 .closeBtn {
-  float:left;
-  text-align: center;
-  width:100%;
+  z-index:1005;
+  position:fixed;
+  margin-top:5%!important;
+  margin-left:35%;
+  width:20%;
+  background-color: white;
+}
+
+#sucessGif {
+ position:fixed;
+
 }
 
 #navLink{
