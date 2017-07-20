@@ -131,7 +131,7 @@ var all_questions = [
     question_string: "Retrouver les bons groupes de mots de ces différentes pièces jointes",
     tips:"Consigne : Pour associer ces mots, vous devez cliquez sur un groupe de la liste de gauche et un groupe de la liste de droite, afin de les relier ensemble",
     linkedFile:"",
-    successMedia:"./media/Question10.gif",
+    successMedia:"./media/Question11.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"joinedList",
     choices: {
@@ -200,14 +200,7 @@ Quiz.prototype.render = function(container) {
       if($("#quiz").hasClass("halfArea")){
         $("#quiz").removeClass("halfArea");
       }
-      // if(!$("#embedObject").hasClass("fullArea")){
-      //   $("#embedObject").addClass("fullArea");
-      // }
-      // if($("#embedObject").hasClass("halfArea")){
-      //   $("#embedObject").removeClass("halfArea");
-      // }
-      // $("#embedObject").attr("style", "display:none;");
-      $("<div>").attr("id", "joinedListResult").attr("display", "none").appendTo($("#embedObject"));
+      $("<div>").attr("id", "joinedListResult").attr("style", "display:none;").appendTo($("#embedObject"));
   }
 
   function validateJoinedList(correctJoin) {
@@ -228,8 +221,6 @@ Quiz.prototype.render = function(container) {
   // Helper function for changing the question and updating the buttons
   function change_question() {
     self.questions[current_question_index].render(question_container);
-    //$('#prev-question-button').prop('disabled', current_question_index === 0);
-    // $('#next-question-button').prop('disabled', current_question_index === self.questions.length - 1);
     
     if (self.questions[current_question_index].Type === "checkedList") {
       checkedListDesignBehaviour(self.questions[current_question_index].linkedFile);
@@ -261,7 +252,6 @@ Quiz.prototype.render = function(container) {
   
   // Add listener for the next question button
   $('#next-question-button').click(function() {
-    //Check Answer Here
     if (self.questions[current_question_index].user_choice_index === self.questions[current_question_index].correct_choice_index || (self.questions[current_question_index].Type === "joinedList" && validateJoinedList(self.questions[current_question_index].correctJoin))){
       if (current_question_index < self.questions.length - 1) {
         var thisDisplay = self.questions[current_question_index].successMedia;
@@ -305,12 +295,7 @@ Quiz.prototype.render = function(container) {
       }
     }
     
-    //Display the score with the appropriate message
-    var percentage = score / self.questions.length;
-    var message;
-    // if (percentage === 1) {
-      message = 'Bien joué !'
-    // }
+    var message= 'Félicitation :)';
     getFinalAnimation();
     //remove answers
     var containerToUnfill = $('#question');
@@ -321,13 +306,14 @@ Quiz.prototype.render = function(container) {
 
     $("#next-question-button").remove();
 
-    //remove tips and question label
+    //remove canvas, tips and question label
+    $("#connection-canvas").remove();
     $("#questionLabel").remove();
     $("#tipsContainer").remove();
 
   }
     $('#quiz-results-message').text(message);
-    $('#quiz-results-score').html('Vous avez obtenu <b>' + score + '/' + self.questions.length + '</b> questions correctes.');
+    $('#quiz-results-score').html('Vous avez réussis les '+self.questions.length+' questions !');
     $('#quiz-results').slideDown();
     $('#quiz button').slideUp();
   });
@@ -358,9 +344,9 @@ var Question = function(question_string, correct_choice, wrong_choices, tips, li
   this.failMedia = failMedia;
   this.choices = [];
   this.correctJoin = correctJoin;
-  this.user_choice_index = null; // Index of the user's choice selection
+  this.user_choice_index = null;
   if (type === "checkedList") {
-    $("#connection-canvas").attr("style", "display:none;") //width:1360px!important;height:450px!important;
+    $("#connection-canvas").attr("style", "display:none;margin-top:150px;");
     // Random assign the correct choice an index
     this.correct_choice_index = Math.floor(Math.random() * wrong_choices.length + 1);
     
