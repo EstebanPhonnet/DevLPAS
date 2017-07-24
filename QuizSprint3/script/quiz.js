@@ -53,11 +53,25 @@ var all_questions = [
         correct: "Vrai",
         wrong: ["Faux"]
    }
-  }, {
+  },
+   {
     //Question 5
     question_string: "Je suis né(e) en 1953 ? A quel âge, ai-je le droit de partir à la retraite ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
-    linkedFile:"HelperTabs.png",
+    linkedFile: {
+      "type": "table",
+      "src":{
+        rows: [
+          ["DATE DE NAISSANCE", "AGE LEGAL DE DEPART A LA RETRAITE", "AGE DU TAUX PLEIN"],
+          ["Avant le 1er juillet 1951", "60 ans","65 ans"],
+          ["Du 1er juillet au 31 décembre 1951", "60 ans et 4 mois","65 ans et 4 mois"],
+          ["En 1952", "60 ans et 9 mois","65 ans et 9 mois"],
+          ["En 1953", "61 ans et 2 mois","66 ans et 2 mois"],
+          ["En 1954", "61 ans et 7 mois","66 ans et 7 mois"],
+          ["A partir de 1955", "62 ans","67 ans"]
+        ]
+      }
+    },
     successMedia:"./media/Question5.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
@@ -65,11 +79,25 @@ var all_questions = [
         correct: "61 ans",
         wrong: ["62 ans","60 ans","66 ans",]
     }
-  }, {
+  }
+  , {
     //Question 6
     question_string: "Je suis né(e) en 1953 ? A quel âge, je peux partir à la retraite à taux plein ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
-    linkedFile:"HelperTabs.png",
+  linkedFile: {
+        "type": "table",
+        "src":{
+          rows: [
+            ["DATE DE NAISSANCE", "AGE LEGAL DE DEPART A LA RETRAITE", "AGE DU TAUX PLEIN"],
+            ["Avant le 1er juillet 1951", "60 ans","65 ans"],
+            ["Du 1er juillet au 31 décembre 1951", "60 ans et 4 mois","65 ans et 4 mois"],
+            ["En 1952", "60 ans et 9 mois","65 ans et 9 mois"],
+            ["En 1953", "61 ans et 2 mois","66 ans et 2 mois"],
+            ["En 1954", "61 ans et 7 mois","66 ans et 7 mois"],
+            ["A partir de 1955", "62 ans","67 ans"]
+          ]
+        }
+      },
     successMedia:"./media/Question6.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
@@ -77,11 +105,32 @@ var all_questions = [
         correct: "66 ans",
         wrong: ["62 ans","60 ans","61 ans",]
    }
-  }, {
+  }
+  , {
     //Question 7
     question_string: "Je suis né(e) en 1953 ? Combien de trimestres dois-je avoir cotisé pour pouvoir partir en retraite à taux plein ?",
     tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
-    linkedFile:"HelperTabs2.png",
+    linkedFile: {
+      "type": "table",
+      "src":{
+        rows: [
+          ["Année de naissance", "Durée de cotisation"],
+          ["1948 ou avant", "160 trimestres (40 ans)"],
+          ["1949", "161 trimestres (40 ans et un trimestre)"],
+          ["1950", "162 trimestres (40 ans et deux trimestres)"],
+          ["1951", "163 trimestres (40 ans et trois trimestres)"],
+          ["1952", "164 trimestres (41 ans)"],
+          ["1953 - 1954", "165 trimestres (41 ans et un trimestre)"],
+          ["1955 - 1957", "166 trimestres (41 ans et deux trimestres)"],
+          ["1958 - 1960", "167 trimestres (41 ans et trois trimestres)"],
+          ["1961 - 1963", "168 trimestres (42 ans)"],
+          ["1964 - 1966", "169 trimestres (42 ans et un trimestre)"],
+          ["1967 - 1969", "170 trimestres (42 ans et deux trimestres)"],
+          ["1970 - 1972", "171 trimestres (42 ans et trois trimestres)"],
+          ["à partir de 1973", "172 trimestres (43 ans)"]
+        ]
+      }
+    },
     successMedia:"./media/Question7.gif",
     failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
     Type:"checkedList",
@@ -89,7 +138,8 @@ var all_questions = [
         correct: "165",
         wrong: ["162","166"]
     }
-  }, {
+  }
+  ,{
     //Question 8
     question_string: "Jusqu’à quel âge peut-on travailler?",
     tips:"Consigne : cliquez sur la bonne réponse",
@@ -154,7 +204,8 @@ var all_questions = [
       wrong: ["d'identité bancaire", "de famille"],
       correct : "de naissance"
     }
-  }];
+  }
+  ];
 
 
 // An object for a Quiz, which will contain Question objects.
@@ -430,6 +481,20 @@ var fillHoleListChoices = function (self, wrong_choices, correct_choice) {
   return self.choices;
 }
 
+var addTableToView = function(container, table) {
+  var tableToRender = $('<table>').attr("class", "linkedFileTable").appendTo(container);
+  for(var i=0; i<table.rows.length; i++){
+    var row = $('<tr>').attr("class", "linkedFileTableRow").appendTo(tableToRender);
+    for(var j=0; j<table.rows[i].length; j++) {
+      if (i == 0)
+        $('<th>').html(table.rows[i][j]).attr("class", "linkedFileTableRowElementHead").appendTo(row);
+      else
+        $('<td>').html(table.rows[i][j]).attr("class", "linkedFileTableRowElementBody").appendTo(row);
+    }
+  }
+  tableToRender;
+}
+
 // A function that you can enact on an instance of a question object. This function is called render() and takes in a variable called the container, which is the <div> that I will render the question in. This question will "return" with the score when the question has been answered.
 Question.prototype.render = function(container) {
   // For when we're out of scope
@@ -462,8 +527,12 @@ Question.prototype.render = function(container) {
       $(this).remove();
     });
   }
-  if (this.linkedFile) {
-    linkedFileContainer.prepend('<img id="linkedImage" src="./media/'+ this.linkedFile +'" />')
+  if (this.linkedFile && this.linkedFile.type === "img") {
+    linkedFileContainer.prepend('<img id="linkedImage" src="./media/'+ this.linkedFile.src +'" />')
+    $("#quiz").addClass("halfArea");
+    $("#quiz").removeClass("fullArea");
+  } else if (this.linkedFile && this.linkedFile.type === "table") {
+    addTableToView(linkedFileContainer, this.linkedFile.src);
     $("#quiz").addClass("halfArea");
     $("#quiz").removeClass("fullArea");
   } else {

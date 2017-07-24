@@ -53,6 +53,29 @@ p {
   text-align: center;
 }
 
+.linkedFileTable {
+  overflow: auto;
+  min-width: 450px;
+  width:100%;
+  float:left;
+  font-size: 10px !important;
+  border:solid black 1px;
+}
+
+.linkedFileTableRow  {
+  border-top:solid black 1px;
+}
+
+.linkedFileTableRowElementBody  {
+  border-left:solid black 1px;
+  text-align: center;
+}
+
+.linkedFileTableRowElementHead  {
+  border-left:solid black 1px;
+  background-color: #faf0d7;
+}
+
 .rowAnswer {
   width:100%;
 }
