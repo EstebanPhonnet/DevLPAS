@@ -55,15 +55,16 @@ p {
 
 .linkedFileTable {
   overflow: auto;
-  min-width: 450px;
+  min-width: 640px;
   width:100%;
   float:left;
-  font-size: 10px !important;
+  /*font-size: 15px !important;*/
   border:solid black 1px;
 }
 
 .linkedFileTableRow  {
   border-top:solid black 1px;
+  height:30px;
 }
 
 .linkedFileTableRowElementBody  {
@@ -253,6 +254,13 @@ input{
   margin-left:35%;
   width:30%;
   background-color: white;
+  color: #9629ba; 
+  padding:8px 20px;
+  border-radius: 50px;
+  border: solid #4893B3 1px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 #sucessGif {

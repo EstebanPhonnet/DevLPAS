@@ -239,7 +239,6 @@ Quiz.prototype.render = function(container) {
   var question_container = $('<div>').attr('id', 'question').insertAfter('#quiz-name');
   
   function checkedListDesignBehaviour(linkedFile) {
-      $("#reset-question-button").attr("style", "display:none;");
       $("#connection-canvas").attr("style", "display:none;");
       if(!$("#quiz").hasClass("halfArea") && linkedFile){
         $("#quiz").addClass("halfArea");
@@ -260,7 +259,6 @@ Quiz.prototype.render = function(container) {
   }
 
   function joinedListDesignBehaviour() {
-      $("#reset-question-button").attr("style", "display:inline-block;");
       $("#connection-canvas").attr("style", "display:inline-block;");
       if(!$("#quiz").hasClass("fullArea")){
         $("#quiz").addClass("fullArea");
@@ -286,15 +284,8 @@ Quiz.prototype.render = function(container) {
     return false;
   }
 
-  function resetJoinedList() {
-    $("#joinedListResult").html("");
-    var canvas = document.getElementById("connection-canvas");
-    var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
   function validateHoleList(correctAnswer) {
-    var value = $("#dropInput").val();
+    // var value = $("#dropInput").val();
     if (value === correctAnswer){    
       return true;
     }
@@ -324,11 +315,6 @@ Quiz.prototype.render = function(container) {
   // Render the first question
   var current_question_index = 0;
   change_question();
-
-  // Add listener for the previous question button
-  $('#reset-question-button').click(function() {
-    resetJoinedList();
-  });
   
   // Add listener for the previous question button
   $('#prev-question-button').click(function() {
