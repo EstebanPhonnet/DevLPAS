@@ -91,7 +91,12 @@
 }
 
 .wordListElement {
-  text-align: left;
+  padding: 5px;
+  background-color: #FFFFFF;
+  color: #9629ba;
+  border: solid #4893B3 1px;
+  border-radius: 50px;
+  text-align: center;
   left:0px;
 }
 
