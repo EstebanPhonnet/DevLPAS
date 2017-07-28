@@ -4,6 +4,7 @@
   $("#panel").css('visibility', 'visible');
   $("#questionLabel").css('visibility', 'visible');
   $("#tipsContainer").css('visibility', 'visible');
+  $("#quiz").css('visibility', 'visible');
   $("#quiz").unblock();
  }
 
@@ -31,6 +32,7 @@ function autoPlayGif(gifToPlay){
   if (gifToPlay) {
     // $("#quiz").block({ message: null });
     // onBlur();
+    $("#quiz").css('visibility', 'hidden');
     $("#flip").css('visibility', 'hidden');
     $("#panel").css('visibility', 'hidden');
     $("#questionLabel").css('visibility', 'hidden');
