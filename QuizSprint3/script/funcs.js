@@ -1,5 +1,7 @@
  function unblur() {
   onFocus();
+  $("#flip").css('visibility', 'visible');
+  $("#panel").css('visibility', 'visible');
   $("#questionLabel").css('visibility', 'visible');
   $("#tipsContainer").css('visibility', 'visible');
   $("#quiz").unblock();
@@ -29,6 +31,8 @@ function autoPlayGif(gifToPlay){
   if (gifToPlay) {
     // $("#quiz").block({ message: null });
     // onBlur();
+    $("#flip").css('visibility', 'hidden');
+    $("#panel").css('visibility', 'hidden');
     $("#questionLabel").css('visibility', 'hidden');
     $("#tipsContainer").css('visibility', 'hidden');
     $("#videoContainer").html('<div id="iframe-container"><h3 class="videoMessageTips">  Bravo !  </h3><a href="#" class="closeBtn" onclick="this.parentNode.parentNode.removeChild(this.parentNode);unblur();"> Continuer ? (clic ici) </a>' +

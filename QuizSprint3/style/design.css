@@ -34,6 +34,7 @@ p {
 }
 
 .dropInput {
+
   display: inline-block;
   float: right;
 }
@@ -52,6 +53,23 @@ p {
   padding:5px 5px 5px 5px;
   text-align: center;
 }
+
+.rowAnswerToDrag:hover {
+  float:left;
+  clear:left;
+  background-color: #9629ba;
+  color: #FFFFFF  ;
+  border: solid #4893B3 1px;
+  border-radius: 50px;
+  display: block;
+  min-width:100px;
+  width:50%;
+  margin-left:25%;
+  padding:5px 5px 5px 5px;
+  text-align: center;
+}
+
+
 
 .linkedFileTable {
   overflow: auto;
@@ -113,6 +131,11 @@ input{
   justify-content: center;
   width: 100%;
   height: 50px;
+}
+
+.imgIcon{
+  height: 21px;
+  width: 21px;
 }
 
 .quizBtn{

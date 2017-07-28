@@ -1,169 +1,170 @@
 // Array of all the questions and choices to populate the questions. This might be saved in some JSON file or a database and we would have to read the data in.
 var all_questions = [
+ //  {
+ //    // Question 1
+ //    question_string: "Qu’est ce que la retraite par répartition? ",
+ //    tips:"Consigne : cliquez sur la bonne réponse",
+ //    linkedFile:"",
+ //    successMedia:"./media/Question1.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "les retraités sont payés par les cotisations prélevées sur le salaire des personnes qui travaillent ",
+ //        wrong: ["les retraités partagent leurs économies ensemble ",
+ //         "les retraités partagent leur pension de retraite avec les demandeurs d’emploi "]
+ //    }
+ //  },{
+ //  // Question 2
+ //    question_string: "Comment est calculée une retraite à taux plein? ",
+ //    tips:"Consigne : cliquez sur la bonne réponse",
+ //    linkedFile:"",
+ //    successMedia:"./media/Question2.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "sur la base de 50 % du salaire annuel moyen ",
+ //        wrong: ["sur la base de 45% du salaire annuel moyen ",
+ //         "sur la base de 80 % du salaire annuel moyen "]
+ //    }
+ //  }
+ //  , {
+ //    //Question 3
+ //    question_string: "La pension de retraite comprend:",
+ //    tips:"Consigne : cliquez sur la bonne réponse",
+ //    linkedFile:"",
+ //    successMedia:"./media/Question3.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "la retraite de base + la retraite complémentaire",
+ //        wrong: ["la retraite de base + l’AAH",
+ //         "la retraite de base + les économies personnelles"]
+ //   }
+ //  }
+ //  ,{
+ //    //Question 4
+ //    question_string: "Je suis reconnu(e) « travailleur Handicapé », je n’ai pas cotisé suffisamment, je peux partir à la retraite à taux plein à l’âge légal ?",
+ //    tips:"Consigne : cliquez sur la bonne réponse",
+ //    linkedFile:"",
+ //    successMedia:"./media/Question4.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "Vrai",
+ //        wrong: ["Faux"]
+ //   }
+ //  },
+ //   {
+ //    //Question 5
+ //    question_string: "Je suis né(e) en 1953 ? A quel âge, ai-je le droit de partir à la retraite ?",
+ //    tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
+ //    linkedFile: {
+ //      "type": "table",
+ //      "src":{
+ //        rows: [
+ //          ["DATE DE NAISSANCE", "AGE LEGAL DE DEPART A LA RETRAITE", "AGE DU TAUX PLEIN"],
+ //          ["Avant le 1er juillet 1951", "60 ans","65 ans"],
+ //          ["Du 1er juillet au 31 décembre 1951", "60 ans et 4 mois","65 ans et 4 mois"],
+ //          ["En 1952", "60 ans et 9 mois","65 ans et 9 mois"],
+ //          ["En 1953", "61 ans et 2 mois","66 ans et 2 mois"],
+ //          ["En 1954", "61 ans et 7 mois","66 ans et 7 mois"],
+ //          ["A partir de 1955", "62 ans","67 ans"]
+ //        ]
+ //      }
+ //    },
+ //    successMedia:"./media/Question5.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "61 ans",
+ //        wrong: ["62 ans","60 ans","66 ans",]
+ //    }
+ //  },
+ //   {
+ //    //Question 6
+ //    question_string: "Je suis né(e) en 1953 ? A quel âge, je peux partir à la retraite à taux plein ?",
+ //    tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
+ //  linkedFile: {
+ //        "type": "table",
+ //        "src":{
+ //          rows: [
+ //            ["DATE DE NAISSANCE", "AGE LEGAL DE DEPART A LA RETRAITE", "AGE DU TAUX PLEIN"],
+ //            ["Avant le 1er juillet 1951", "60 ans","65 ans"],
+ //            ["Du 1er juillet au 31 décembre 1951", "60 ans et 4 mois","65 ans et 4 mois"],
+ //            ["En 1952", "60 ans et 9 mois","65 ans et 9 mois"],
+ //            ["En 1953", "61 ans et 2 mois","66 ans et 2 mois"],
+ //            ["En 1954", "61 ans et 7 mois","66 ans et 7 mois"],
+ //            ["A partir de 1955", "62 ans","67 ans"]
+ //          ]
+ //        }
+ //      },
+ //    successMedia:"./media/Question6.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "66 ans",
+ //        wrong: ["62 ans","60 ans","61 ans",]
+ //   }
+ //  },
+ // {
+ //    //Question 7
+ //    question_string: "Je suis né(e) en 1953 ? Combien de trimestres dois-je avoir cotisé pour pouvoir partir en retraite à taux plein ?",
+ //    tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
+ //    linkedFile: {
+ //      "type": "table",
+ //      "src":{
+ //        rows: [
+ //          ["Année de naissance", "Durée de cotisation"],
+ //          ["1948 ou avant", "160 trimestres (40 ans)"],
+ //          ["1949", "161 trimestres (40 ans et un trimestre)"],
+ //          ["1950", "162 trimestres (40 ans et deux trimestres)"],
+ //          ["1951", "163 trimestres (40 ans et trois trimestres)"],
+ //          ["1952", "164 trimestres (41 ans)"],
+ //          ["1953 - 1954", "165 trimestres (41 ans et un trimestre)"],
+ //          ["1955 - 1957", "166 trimestres (41 ans et deux trimestres)"],
+ //          ["1958 - 1960", "167 trimestres (41 ans et trois trimestres)"],
+ //          ["1961 - 1963", "168 trimestres (42 ans)"],
+ //          ["1964 - 1966", "169 trimestres (42 ans et un trimestre)"],
+ //          ["1967 - 1969", "170 trimestres (42 ans et deux trimestres)"],
+ //          ["1970 - 1972", "171 trimestres (42 ans et trois trimestres)"],
+ //          ["à partir de 1973", "172 trimestres (43 ans)"]
+ //        ]
+ //      }
+ //    },
+ //    successMedia:"./media/Question7.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "165",
+ //        wrong: ["162","166"]
+ //    }
+ //  }
+ //  ,{
+ //    //Question 8
+ //    question_string: "Jusqu’à quel âge peut-on travailler?",
+ //    tips:"Consigne : cliquez sur la bonne réponse",
+ //    linkedFile:"",
+ //    successMedia:"./media/Question8.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "70 ans",
+ //        wrong: ["65 ans","62 ans"]
+ //    }
+ //  }, {
+ //    //Question 9
+ //    question_string: "Combien de trimestres (il y a) dans une année de travail ?",
+ //    tips:"Consigne : cliquez sur la bonne réponse",
+ //    linkedFile:"",
+ //    successMedia:"./media/Question9.gif",
+ //    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
+ //    Type:"checkedList",
+ //    choices: {
+ //        correct: "4 trimestres",
+ //        wrong: ["3 trimestres","6 trimestres"]
+ //    }
+ //  },
   {
-    // Question 1
-    question_string: "Qu’est ce que la retraite par répartition? ",
-    tips:"Consigne : cliquez sur la bonne réponse",
-    linkedFile:"",
-    successMedia:"./media/Question1.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "les retraités sont payés par les cotisations prélevées sur le salaire des personnes qui travaillent ",
-        wrong: ["les retraités partagent leurs économies ensemble ",
-         "les retraités partagent leur pension de retraite avec les demandeurs d’emploi "]
-    }
-  },{
-  // Question 2
-    question_string: "Comment est calculée une retraite à taux plein? ",
-    tips:"Consigne : cliquez sur la bonne réponse",
-    linkedFile:"",
-    successMedia:"./media/Question2.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "sur la base de 50 % du salaire annuel moyen ",
-        wrong: ["sur la base de 45% du salaire annuel moyen ",
-         "sur la base de 80 % du salaire annuel moyen "]
-    }
-  }
-  , {
-    //Question 3
-    question_string: "La pension de retraite comprend:",
-    tips:"Consigne : cliquez sur la bonne réponse",
-    linkedFile:"",
-    successMedia:"./media/Question3.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "la retraite de base + la retraite complémentaire",
-        wrong: ["la retraite de base + l’AAH",
-         "la retraite de base + les économies personnelles"]
-   }
-  }
-  ,{
-    //Question 4
-    question_string: "Je suis reconnu(e) « travailleur Handicapé », je n’ai pas cotisé suffisamment, je peux partir à la retraite à taux plein à l’âge légal ?",
-    tips:"Consigne : cliquez sur la bonne réponse",
-    linkedFile:"",
-    successMedia:"./media/Question4.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "Vrai",
-        wrong: ["Faux"]
-   }
-  },
-   {
-    //Question 5
-    question_string: "Je suis né(e) en 1953 ? A quel âge, ai-je le droit de partir à la retraite ?",
-    tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
-    linkedFile: {
-      "type": "table",
-      "src":{
-        rows: [
-          ["DATE DE NAISSANCE", "AGE LEGAL DE DEPART A LA RETRAITE", "AGE DU TAUX PLEIN"],
-          ["Avant le 1er juillet 1951", "60 ans","65 ans"],
-          ["Du 1er juillet au 31 décembre 1951", "60 ans et 4 mois","65 ans et 4 mois"],
-          ["En 1952", "60 ans et 9 mois","65 ans et 9 mois"],
-          ["En 1953", "61 ans et 2 mois","66 ans et 2 mois"],
-          ["En 1954", "61 ans et 7 mois","66 ans et 7 mois"],
-          ["A partir de 1955", "62 ans","67 ans"]
-        ]
-      }
-    },
-    successMedia:"./media/Question5.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "61 ans",
-        wrong: ["62 ans","60 ans","66 ans",]
-    }
-  },
-   {
-    //Question 6
-    question_string: "Je suis né(e) en 1953 ? A quel âge, je peux partir à la retraite à taux plein ?",
-    tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
-  linkedFile: {
-        "type": "table",
-        "src":{
-          rows: [
-            ["DATE DE NAISSANCE", "AGE LEGAL DE DEPART A LA RETRAITE", "AGE DU TAUX PLEIN"],
-            ["Avant le 1er juillet 1951", "60 ans","65 ans"],
-            ["Du 1er juillet au 31 décembre 1951", "60 ans et 4 mois","65 ans et 4 mois"],
-            ["En 1952", "60 ans et 9 mois","65 ans et 9 mois"],
-            ["En 1953", "61 ans et 2 mois","66 ans et 2 mois"],
-            ["En 1954", "61 ans et 7 mois","66 ans et 7 mois"],
-            ["A partir de 1955", "62 ans","67 ans"]
-          ]
-        }
-      },
-    successMedia:"./media/Question6.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "66 ans",
-        wrong: ["62 ans","60 ans","61 ans",]
-   }
-  },
- {
-    //Question 7
-    question_string: "Je suis né(e) en 1953 ? Combien de trimestres dois-je avoir cotisé pour pouvoir partir en retraite à taux plein ?",
-    tips:"Consigne : observez bien le tableau ci-contre puis cliquez sur la bonne réponse",
-    linkedFile: {
-      "type": "table",
-      "src":{
-        rows: [
-          ["Année de naissance", "Durée de cotisation"],
-          ["1948 ou avant", "160 trimestres (40 ans)"],
-          ["1949", "161 trimestres (40 ans et un trimestre)"],
-          ["1950", "162 trimestres (40 ans et deux trimestres)"],
-          ["1951", "163 trimestres (40 ans et trois trimestres)"],
-          ["1952", "164 trimestres (41 ans)"],
-          ["1953 - 1954", "165 trimestres (41 ans et un trimestre)"],
-          ["1955 - 1957", "166 trimestres (41 ans et deux trimestres)"],
-          ["1958 - 1960", "167 trimestres (41 ans et trois trimestres)"],
-          ["1961 - 1963", "168 trimestres (42 ans)"],
-          ["1964 - 1966", "169 trimestres (42 ans et un trimestre)"],
-          ["1967 - 1969", "170 trimestres (42 ans et deux trimestres)"],
-          ["1970 - 1972", "171 trimestres (42 ans et trois trimestres)"],
-          ["à partir de 1973", "172 trimestres (43 ans)"]
-        ]
-      }
-    },
-    successMedia:"./media/Question7.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "165",
-        wrong: ["162","166"]
-    }
-  }
-  ,{
-    //Question 8
-    question_string: "Jusqu’à quel âge peut-on travailler?",
-    tips:"Consigne : cliquez sur la bonne réponse",
-    linkedFile:"",
-    successMedia:"./media/Question8.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "70 ans",
-        wrong: ["65 ans","62 ans"]
-    }
-  }, {
-    //Question 9
-    question_string: "Combien de trimestres (il y a) dans une année de travail ?",
-    tips:"Consigne : cliquez sur la bonne réponse",
-    linkedFile:"",
-    successMedia:"./media/Question9.gif",
-    failMedia:"https://www.youtube.com/embed/TfLmXUrFFPw?autoplay=1",
-    Type:"checkedList",
-    choices: {
-        correct: "4 trimestres",
-        wrong: ["3 trimestres","6 trimestres"]
-    }
-  }, {
     //Question 10
     question_string: "Lequel de ces régimes n’est pas un régime de retraite ?",
     tips:"Consigne : cliquez sur la bonne réponse",
@@ -616,6 +617,12 @@ var setChoiciesHoleText = function (container, me) {
     var elem = $("#"+ev.originalEvent.dataTransfer.getData("text") || ev.originalEvent.dataTransfer.getData("text/plain"))
     this.value = "";
     this.value = elem.text();
+    //set selection
+    $(".answer").each(function (element) {
+      $(this).parent().removeClass("selected");
+    });
+    console.log(ev.originalEvent.dataTransfer.getData("text"));
+    $("#"+ev.originalEvent.dataTransfer.getData("text")).parent().addClass("selected");
     return false;
   });
 }

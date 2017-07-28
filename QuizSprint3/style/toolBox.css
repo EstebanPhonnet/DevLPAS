@@ -91,6 +91,7 @@
 }
 
 .wordListElement {
+  cursor: pointer;
   padding: 5px;
   background-color: #FFFFFF;
   color: #9629ba;
